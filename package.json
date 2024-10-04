@@ -9,14 +9,17 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@nuxt/eslint": "^0.5.7",
+    "element-plus": "^2.8.4",
     "less": "^4.2.0",
     "nuxt": "^3.13.0",
     "vue": "latest",
-    "vue-router": "latest",
-    "element-plus": "^2.8.4"
+    "vue-router": "latest"
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.10",

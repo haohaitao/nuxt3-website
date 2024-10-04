@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     },
   },
   nitro: {},
-  modules: ["@element-plus/nuxt"],
+  modules: ["@element-plus/nuxt", "@nuxt/eslint"],
   build: {
     transpile: [
       "@fortawesome/fontawesome-svg-core",

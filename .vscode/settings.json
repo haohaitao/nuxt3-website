@@ -1,3 +1,5 @@
 {
-  "cSpell.words": ["Nuxt"]
+  // Enable ESlint flat config support
+  "eslint.useFlatConfig": true,
+  "cSpell.words": ["backtop", "iconfont", "Nuxt", "pageviews"]
 }
