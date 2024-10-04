@@ -1,5 +1,7 @@
 {
-  "name": "nuxt-app",
+  "name": "vue-website",
+  "version": "0.01",
+  "description": "使用nuxt3构建web应用",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,8 +12,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "less": "^4.2.0",
     "nuxt": "^3.13.0",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "element-plus": "^2.8.4"
+  },
+  "devDependencies": {
+    "@element-plus/nuxt": "^1.0.10",
+    "dayjs-nuxt": "^2.1.11"
   }
 }

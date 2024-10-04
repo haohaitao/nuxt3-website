@@ -18,11 +18,7 @@ export default defineNuxtConfig({
       noscript: [],
     },
   },
-  css: [
-    "~/assets/font/iconfont.css",
-    "~/assets/animate.css",
-    "~/assets/highlight.css",
-  ],
+  css: ["~/assets/animate.css", "~/assets/highlight.css"],
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   runtimeConfig: {
