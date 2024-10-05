@@ -28,7 +28,6 @@
                         <li>首页</li>
                     </nuxt-link>
                     <li class="sub-item">分类</li>
-                    <!-- 可使用命名路由 -->
                     <nuxt-link to="/">
                         <li>每日一图</li>
                     </nuxt-link>
@@ -73,17 +72,16 @@
                             </template>
                         </el-dropdown>
                     </li>
-                    <!-- 可使用命名路由 -->
-                    <nuxt-link to="/everyday">
+                    <nuxt-link to="/">
                         <li>每日一图</li>
                     </nuxt-link>
-                    <nuxt-link to="/online_chat">
+                    <nuxt-link to="/">
                         <li>聊天室</li>
                     </nuxt-link>
-                    <nuxt-link to="/statistics">
+                    <nuxt-link to="/">
                         <li>统计</li>
                     </nuxt-link>
-                    <nuxt-link to="/about">
+                    <nuxt-link to="/">
                         <li>关于</li>
                     </nuxt-link>
                 </ul>
@@ -97,16 +95,7 @@ import { ref } from "vue";
 
 const isVisibleNavFar = ref(false);
 
-const selectItem = (select_item) => {
-    sessionStorage.setItem("cateState", select_item);
-    if (select_item === sessionStorage.getItem("cateState")) {
-        this.$store.commit("save", select_item);
-        this.$router.push({
-            path: "/categories",
-            query: { categoriesId: select_item },
-        });
-    }
-};
+const selectItem = () => {};
 const closeCollMenu = () => {
     isVisibleNavFar.value = !isVisibleNavFar.value;
 };
