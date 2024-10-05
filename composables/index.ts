@@ -1,1 +1,1 @@
-export * from "./homeList";
+export * from "./queryData";

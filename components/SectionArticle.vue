@@ -8,7 +8,7 @@
                     :style="val.content_first_image ? setLink(val) : ''"
                 />
             </div>
-            <div data-allow-mismatch class="bg-cover">
+            <div data-allow-mismatch class="bg-cover" @click="jumpDetail(val)">
                 <p v-html="val.excerpt" />
             </div>
             <div class="other-bgCover right-bgCover" />
@@ -104,6 +104,7 @@
 </template>
 
 <script setup>
+const router = useRouter();
 const props = defineProps({
     blogList: {
         //是否显示选择框
@@ -151,10 +152,9 @@ const blogShowList = ref([
 ]); //保存拿到的文章数据
 
 const setLink = computed(() => (val) => {
-    return (
-        `background: url(${val.content_first_image}) 100% 100% / 100% 100%` ||
-        ""
-    );
+    return val.content_first_image
+        ? `background: url(${val.content_first_image}) 100% 100% / 100% 100%`
+        : "";
 });
 
 const initPage = () => {
@@ -163,6 +163,10 @@ const initPage = () => {
     }
 };
 initPage();
+
+const jumpDetail = (val) => {
+    router.push(`/article?id=${val.id}`);
+};
 
 watch(
     () => props.blogList,

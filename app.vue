@@ -14,6 +14,7 @@
 }
 html {
     cursor: url("~/assets/cur/pointer.cur"), default;
+    font-size: 12px;
 }
 body {
     font-size: 12px;
