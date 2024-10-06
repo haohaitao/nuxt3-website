@@ -11,9 +11,9 @@ const fetch = async (url: string | string[], options?: any) => {
         console.warn("url is must be string!");
         return;
     }
-    const $config = useRuntimeConfig();
+    const runtimeConfig = useRuntimeConfig();
     const reqUrl =
-        url.indexOf("http") > -1 ? url : $config.app["BASE_URL"] + url;
+        url.indexOf("http") > -1 ? url : runtimeConfig.app["BASE_URL"] + url;
     return new Promise((resolve, reject) => {
         $fetch(reqUrl, {
             ...options,

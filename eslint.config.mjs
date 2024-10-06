@@ -11,6 +11,7 @@ export default withNuxt(
             "no-console": ["error", { allow: ["warn", "error"] }],
             "no-nested-ternary": ["error"],
             "@typescript-eslint/no-explicit-any": "off",
+            "vue/no-multiple-template-root": "off",
             "max-lines": [
                 "error",
                 {

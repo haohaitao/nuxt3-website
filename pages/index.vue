@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import dayjs from "dayjs";
 
 const blogList = ref([]); //存接口返回的数据
@@ -68,7 +67,9 @@ const initPage = async () => {
         });
         blogList.value = res.data;
         total.value = Number(res.total);
-        import.meta.client && window.scrollTo(0, 0);
+        if (import.meta.client) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
     });
 };
 initPage();

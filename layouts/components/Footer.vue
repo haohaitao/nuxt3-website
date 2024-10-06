@@ -24,7 +24,7 @@
                 </span>
             </div>
             <!-- pc端显示 -->
-            <el-backtop :right="260" :bottom="150" class="desktop_goback">
+            <el-backtop :right="80" :bottom="150" class="desktop_goback">
                 <div class="backTop-icon">▲</div>
             </el-backtop>
             <!-- 移动端显示 -->

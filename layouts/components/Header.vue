@@ -3,7 +3,7 @@
         <div class="container">
             <div class="home-left">
                 <div class="page-name">
-                    <el-icon><ElIconPosition /></el-icon>
+                    <el-icon size="20"><ElIconPosition /></el-icon>
                     <nuxt-link to="/">Hao</nuxt-link>
                 </div>
             </div>
@@ -91,10 +91,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
 const isVisibleNavFar = ref(false);
-
 const selectItem = () => {};
 const closeCollMenu = () => {
     isVisibleNavFar.value = !isVisibleNavFar.value;

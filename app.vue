@@ -44,7 +44,7 @@ a:hover {
 }
 button {
     cursor: url("~/assets/cur/cursor.cur"), pointer !important;
-}
+} 
 /*分页页码*/
 .el-pager li {
     cursor: url("~/assets/cur/cursor.cur"), pointer !important;

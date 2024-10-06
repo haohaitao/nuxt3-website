@@ -1,8 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { siteConfig } from "./site.config";
+
 export default defineNuxtConfig({
     app: {
         baseURL: "/",
         head: {
+            htmlAttrs: {
+                lang: siteConfig.lang,
+            },
+            title: siteConfig.title,
             meta: [
                 {
                     name: "viewport",
@@ -11,6 +17,14 @@ export default defineNuxtConfig({
                 },
                 {
                     charset: "utf-8",
+                },
+                {
+                    name: "keywords",
+                    content: siteConfig.keywords,
+                },
+                {
+                    name: "description",
+                    content: siteConfig.description,
                 },
             ],
             link: [],
@@ -37,6 +51,7 @@ export default defineNuxtConfig({
             isClient: true,
         },
         app: {
+            title: "郝海涛的个人网站",
             BASE_URL: "https://www.haoht123.com",
         },
     },

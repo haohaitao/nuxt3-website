@@ -115,41 +115,7 @@ const props = defineProps({
     },
 });
 
-const blogShowList = ref([
-    // {
-    //   classify: "",
-    //   title: "",
-    //   description: "",
-    //   id: "",
-    //   image: "",
-    //   date: "1970-01-01",
-    //   pageviews: 20,
-    //   total_comments: 20,
-    //   classifyId: 1,
-    // },
-    // {
-    //   classify: "",
-    //   title: "",
-    //   description: "",
-    //   id: "",
-    //   image: "",
-    //   date: "1970-01-01",
-    //   pageviews: 20,
-    //   total_comments: 20,
-    //   classifyId: 2,
-    // },
-    // {
-    //   classify: "",
-    //   title: "",
-    //   description: "",
-    //   id: "",
-    //   image: "",
-    //   date: "1970-01-01",
-    //   pageviews: 20,
-    //   total_comments: 20,
-    //   classifyId: 3,
-    // },
-]); //保存拿到的文章数据
+const blogShowList = ref([]); //列表数据
 
 const setLink = computed(() => (val) => {
     return val.content_first_image

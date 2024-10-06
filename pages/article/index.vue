@@ -51,43 +51,10 @@
                 </p>
                 <div id="vcomments" />
             </div>
-            <el-button
-                type="primary"
-                style="margin-left: 16px"
-                @click="drawerChange"
-                >更多相同文章</el-button
-            >
-            <el-drawer
-                v-model="drawerState"
-                title="相似文章"
-                direction="ltr"
-                :with-header="false"
-            >
-                <h1 class="drawerTitle">相似文章</h1>
-                <div
-                    v-for="item in relatedPosts"
-                    :key="item.ID"
-                    class="contentList"
-                >
-                    <el-link
-                        v-if="item.ID !== '1228'"
-                        style="border: none"
-                        @click="drawerPost(item)"
-                        >{{ item.post_title }}</el-link
-                    >
-                    <el-link
-                        v-if="item.ID === '1228'"
-                        style="border: none"
-                        disabled
-                        @click="drawerPost(item)"
-                        >{{ item.post_title }}</el-link
-                    >
-                </div>
-            </el-drawer>
         </article>
         <!-- 骨架屏占位 -->
         <article v-else class="skeleton-wrap detail-article">
-            <el-skeleton :key="item" animated class="skeleton-wrap__item">
+            <el-skeleton animated class="skeleton-wrap__item">
                 <template #template>
                     <div style="padding: 14px">
                         <el-skeleton-item variant="p" />
@@ -127,7 +94,7 @@
                             />
                         </div>
                         <div>
-                            <el-skeleton :rows="6" style="margin-top: 20px" />
+                            <el-skeleton :rows="8" style="margin-top: 20px" />
                         </div>
                     </div>
                 </template>
@@ -137,59 +104,40 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
 const route = useRoute();
 const router = useRouter();
 const postId = route.query.id;
-
 const blog = ref({});
-const tagData = ref([]); // 章标签
-const relatedPosts = ref([]); // //存相似文章
-const drawerState = ref(true);
+const tagData = ref([]); // 标签
 
+const initTagData = async (tags) => {
+    try {
+        if (tags.length > 0) {
+            tagData.value = []; //如果tags有内容，清空tagData
+            const promises = tags.map(async (item) => {
+                const response = await getPostsTagsApi(item);
+                return response.data;
+            });
+            const results = await Promise.all(promises);
+            tagData.value = results;
+        }
+    } catch {
+        tagData.value = [];
+    }
+};
 const initPage = () => {
     getPostsDetailsApi(postId).then((res) => {
         res.data.title = res.data.title.rendered;
         res.data.content = res.data.content.rendered;
         res.data.categories = res.data.categories["0"];
         blog.value = res.data;
-        drawerState.value = false;
-        if (res.data.related_posts?.length > 0) {
-            relatedPosts.value = res.data.related_posts;
-        } else {
-            relatedPosts.value = [
-                {
-                    ID: "1228",
-                    post_title: "暂时没有相似文章哦！",
-                },
-            ];
-        }
-        if (res.data.tags.length > 0) {
-            tagData.value = []; //如果tags有内容，清空tagData
-            res.data.tags.map((item) => {
-                getPostsTagsApi(item).then((res) => {
-                    tagData.value.push(res.data);
-                });
-            });
-        }
+        initTagData(res.data.tags);
     });
 };
 initPage();
-
-//打开抽屉
-const drawerChange = () => {
-    drawerState.value = true;
-};
-
 //跳转到标签分类页
 const jumpTagDetails = (item) => {
     router.push({ path: "/tag", query: { tagId: item.id } });
-};
-
-//抽屉里的链接
-const drawerPost = (item) => {
-    router.push({ name: "article", params: { id: item.ID } });
 };
 </script>
 
