@@ -2,34 +2,29 @@
     <footer>
         <div class="container">
             <!-- 需要用到的竖线使用全角竖线｜ -->
-            <div>
+            <div class="flex items-center justify-center">
                 <a href="http://www.beian.miit.gov.cn/" target="_blank"
                     >豫ICP备17023037号-1</a
                 >
+                <!-- 移动端显示 -->
+                <el-backtop class="Mobile_goback">
+                    <div>返回顶部</div>
+                </el-backtop>
             </div>
-            <div class="link-git">
+            <div class="link-git flex items-center justify-center">
                 <span class="name">
                     Copyright © 2019-2024&nbsp;
                     <a target="_blank" href="#">版权所有</a>&nbsp;
                 </span>
-                <span class="github">
+                <span class="github relative top-[2px]">
                     <a target="_blank" href="https://github.com/haohaitao">
-                        <i type="logo-github" />
-                    </a>
-                </span>
-                <span class="github">
-                    <a target="_blank" href="https://github.com/haohaitao">
-                        <i class="iconfont">&#xe732;</i>
+                        <el-icon><ElIconCoin /></el-icon>
                     </a>
                 </span>
             </div>
             <!-- pc端显示 -->
             <el-backtop :right="80" :bottom="150" class="desktop_goback">
                 <div class="backTop-icon">▲</div>
-            </el-backtop>
-            <!-- 移动端显示 -->
-            <el-backtop :bottom="10" class="Mobile_goback">
-                <div>返回顶部</div>
             </el-backtop>
         </div>
     </footer>
@@ -64,13 +59,6 @@ footer {
         position: relative;
         line-height: 26px;
         padding-bottom: 30px;
-
-        .link-git {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            display: inline-block;
-        }
     }
     .backTop-icon {
         height: 100%;

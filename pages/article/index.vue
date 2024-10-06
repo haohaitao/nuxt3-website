@@ -56,45 +56,38 @@
         <article v-else class="skeleton-wrap detail-article">
             <el-skeleton animated class="skeleton-wrap__item">
                 <template #template>
-                    <div style="padding: 14px">
+                    <div class="p-[14px]">
                         <el-skeleton-item variant="p" />
-                        <div
-                            style="
-                                display: flex;
-                                align-items: center;
-                                justify-items: space-between;
-                                margin-top: 50px;
-                            "
-                        >
+                        <div class="flex items-center mt-[50px]">
                             <el-skeleton-item
                                 variant="text"
-                                style="width: 15%; margin-right: 16px"
+                                class="mr-[16px]"
+                                style="width: 15%"
                             />
                             <el-skeleton-item
                                 variant="text"
-                                style="width: 15%; margin-right: 16px"
+                                class="mr-[16px]"
+                                style="width: 15%"
                             />
                             <el-skeleton-item
                                 variant="text"
-                                style="width: 5%; margin-right: 16px"
+                                class="mr-[16px]"
+                                style="width: 5%"
                             />
                             <el-skeleton-item
                                 variant="text"
                                 style="width: 5%"
                             />
                         </div>
-                        <div style="display: flex; justify-content: flex-end">
+                        <div class="flex justify-end">
                             <el-skeleton-item
                                 variant="text"
-                                style="
-                                    width: 15%;
-                                    margin-top: 14px;
-                                    margin-right: 16px;
-                                "
+                                class="mt-[14px] mr-[16px]"
+                                style="width: 15%"
                             />
                         </div>
                         <div>
-                            <el-skeleton :rows="8" style="margin-top: 20px" />
+                            <el-skeleton :rows="14" class="mt-[20px]" />
                         </div>
                     </div>
                 </template>

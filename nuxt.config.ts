@@ -56,6 +56,13 @@ export default defineNuxtConfig({
         },
     },
     nitro: {},
-    modules: ["@element-plus/nuxt", "dayjs-nuxt", "@nuxt/eslint"],
-    build: {},
+    modules: [
+        "@element-plus/nuxt",
+        "dayjs-nuxt",
+        "@nuxt/eslint",
+        "@nuxtjs/tailwindcss",
+    ],
+    build: {
+        transpile: [/^@nuxtjs\/tailwindcss$/],
+    },
 });

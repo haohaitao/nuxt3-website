@@ -44,7 +44,7 @@ a:hover {
 }
 button {
     cursor: url("~/assets/cur/cursor.cur"), pointer !important;
-} 
+}
 /*分页页码*/
 .el-pager li {
     cursor: url("~/assets/cur/cursor.cur"), pointer !important;
@@ -108,14 +108,17 @@ button {
 }
 /* 移动端滚动顶部样式 */
 .Mobile_goback {
-    right: 40% !important;
-    position: absolute !important;
-    border-radius: 0 !important;
-    background: none !important;
     width: 100px !important;
     font-size: 13px !important;
     box-shadow: none !important;
     color: black !important;
+    background: transparent;
+    position: static !important;
+    height: auto !important;
+    text-decoration: underline;
+}
+.el-backtop:hover {
+    background-color: transparent !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -193,13 +196,6 @@ button {
         margin-right: 15% !important;
     }
     /* 底部响应式 */
-    footer .container .link-git {
-        position: absolute !important;
-        top: 40px !important;
-        left: 0;
-        right: 0;
-        margin: auto;
-    }
     footer .container .footer-flot {
         top: 64% !important;
     }

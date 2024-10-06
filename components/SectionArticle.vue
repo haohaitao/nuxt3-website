@@ -25,17 +25,17 @@
                         <el-icon><ElIconTimer /></el-icon>
                         <span
                             data-allow-mismatch
-                            style="font-size: 14px; margin-right: 14px"
+                            class="text-[14px] mr-[14px]"
                             >{{ val.post_date }}</span
                         >
                         <el-icon><ElIconView /></el-icon>
                         <span
                             data-allow-mismatch
-                            style="font-size: 14px; margin-right: 14px"
+                            class="text-[14px] mr-[14px]"
                             >{{ val.pageviews }}</span
                         >
                         <el-icon><ElIconChatDotSquare /></el-icon>
-                        <span data-allow-mismatch style="font-size: 14px">{{
+                        <span data-allow-mismatch class="text-[14px]">{{
                             val.total_comments
                         }}</span>
                     </div>
@@ -73,23 +73,20 @@
                         variant="image"
                         style="width: 280px; height: 230px"
                     />
-                    <div style="padding: 14px">
+                    <div class="p-[14px]">
                         <el-skeleton-item variant="p" />
                         <div
-                            style="
-                                display: flex;
-                                align-items: center;
-                                justify-items: space-between;
-                                margin-top: 50px;
-                            "
+                            class="flex items-center justify-between mt-[50px]"
                         >
                             <el-skeleton-item
                                 variant="text"
-                                style="width: 46%; margin-right: 16px"
+                                style="width: 46%"
+                                class="mr-[16px]"
                             />
                             <el-skeleton-item
                                 variant="text"
-                                style="width: 30%; margin-right: 16px"
+                                style="width: 30%"
+                                class="mr-[16px]"
                             />
                             <el-skeleton-item
                                 variant="text"
