@@ -1,14 +1,18 @@
 <template>
     <div>
+        <Head>
+            <Title>{{ blog.title }}</Title>
+        </Head>
         <article v-if="Object.keys(blog).length > 0" class="detail-article">
             <div class="art-header">
                 <h1>{{ blog.title }}</h1>
                 <div class="header-info">
                     <el-icon><ElIconNotebook /></el-icon>
-                    <nuxt-link
-                        :to="`/categorie?categorieId=${blog.categories}`"
+                    <!-- <nuxt-link
+                        :to="`/category?categoryId=${blog.categories}`"
                         >{{ blog.category_name }}</nuxt-link
-                    >
+                    > -->
+                    {{ blog.category_name }}
                     <el-icon><ElIconCalendar /></el-icon>
                     {{ blog.post_date }}
                     <el-icon><ElIconView /></el-icon>
@@ -29,7 +33,7 @@
                     {{ blog.date ? blog.date.split("T")["1"] : "1970-01-01" }}
                 </div>
             </div>
-            <div id="blog" v-html="blog.content" />
+            <div id="blog" @click.stop="" v-html="blog.content" />
             <div class="content-footer">
                 <p>
                     本文由

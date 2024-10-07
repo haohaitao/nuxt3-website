@@ -1,29 +1,35 @@
 {
-  "name": "vue-website",
-  "version": "0.01",
-  "description": "使用nuxt3构建web应用",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "dependencies": {
-    "@nuxt/eslint": "^0.5.7",
-    "element-plus": "^2.8.4",
-    "less": "^4.2.0",
-    "nuxt": "^3.13.0",
-    "vue": "latest",
-    "vue-router": "latest"
-  },
-  "devDependencies": {
-    "@element-plus/nuxt": "^1.0.10",
-    "@nuxtjs/tailwindcss": "^6.12.1",
-    "dayjs-nuxt": "^2.1.11"
-  }
+    "name": "vue-website",
+    "version": "0.01",
+    "description": "使用nuxt3构建web应用",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "dependencies": {
+        "@nuxt/eslint": "^0.5.7",
+        "@pinia/nuxt": "^0.5.5",
+        "element-plus": "^2.8.4",
+        "less": "^4.2.0",
+        "nuxt": "^3.13.0",
+        "pinia": "^2.2.4",
+        "pinia-plugin-persistedstate": "^4.1.1",
+        "vue": "latest",
+        "vue-router": "latest"
+    },
+    "devDependencies": {
+        "@element-plus/nuxt": "^1.0.10",
+        "@nuxtjs/tailwindcss": "^6.12.1",
+        "dayjs-nuxt": "^2.1.11"
+    },
+    "overrides": {
+        "vue": "latest"
+    }
 }

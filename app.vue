@@ -3,7 +3,27 @@
         <NuxtPage />
     </NuxtLayout>
 </template>
-<script setup></script>
+<script setup>
+import { siteConfig } from "~/site.config";
+
+useHead({
+    titleTemplate: (productCategory) => {
+        return productCategory
+            ? `${productCategory}-${siteConfig.title}`
+            : siteConfig.title;
+    },
+    meta: [
+        {
+            name: "keywords",
+            content: siteConfig.keywords,
+        },
+        {
+            name: "description",
+            content: siteConfig.description,
+        },
+    ],
+});
+</script>
 <style>
 * {
     margin: 0;

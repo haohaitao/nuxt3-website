@@ -37,7 +37,7 @@
                     <nuxt-link to="/">
                         <li>统计</li>
                     </nuxt-link>
-                    <nuxt-link to="/">
+                    <nuxt-link to="/about">
                         <li>关于</li>
                     </nuxt-link>
                 </ul>
@@ -81,7 +81,7 @@
                     <nuxt-link to="/">
                         <li>统计</li>
                     </nuxt-link>
-                    <nuxt-link to="/">
+                    <nuxt-link to="/about">
                         <li>关于</li>
                     </nuxt-link>
                 </ul>

@@ -101,6 +101,7 @@
 </template>
 
 <script setup>
+const initSeoConfig = useSeoConfigStore();
 const router = useRouter();
 const props = defineProps({
     blogList: {
@@ -128,6 +129,7 @@ const initPage = () => {
 initPage();
 
 const jumpDetail = (val) => {
+    initSeoConfig.updateSeoConfig(val);
     router.push(`/article?id=${val.id}`);
 };
 

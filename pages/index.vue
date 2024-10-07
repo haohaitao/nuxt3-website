@@ -22,7 +22,9 @@
 
 <script setup>
 import dayjs from "dayjs";
-
+useSeoMeta({
+    title: "首页",
+});
 const blogList = ref([]); //存接口返回的数据
 const total = ref(0); //返回数据的总条数
 const currentPage = ref(1); //默认页码
@@ -68,7 +70,7 @@ const initPage = async () => {
         blogList.value = res.data;
         total.value = Number(res.total);
         if (import.meta.client) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            // window.scrollTo({ top: 0, behavior: "smooth" });
         }
     });
 };

@@ -8,7 +8,6 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: siteConfig.lang,
             },
-            title: siteConfig.title,
             meta: [
                 {
                     name: "viewport",
@@ -17,14 +16,6 @@ export default defineNuxtConfig({
                 },
                 {
                     charset: "utf-8",
-                },
-                {
-                    name: "keywords",
-                    content: siteConfig.keywords,
-                },
-                {
-                    name: "description",
-                    content: siteConfig.description,
                 },
             ],
             link: [],
@@ -61,6 +52,16 @@ export default defineNuxtConfig({
         "dayjs-nuxt",
         "@nuxt/eslint",
         "@nuxtjs/tailwindcss",
+        [
+            "@pinia/nuxt",
+            {
+                autoImports: [
+                    // 自动引入 `defineStore()`
+                    "defineStore",
+                ],
+            },
+        ],
+        "pinia-plugin-persistedstate/nuxt",
     ],
     build: {
         transpile: [/^@nuxtjs\/tailwindcss$/],

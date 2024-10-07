@@ -1,5 +1,3 @@
-import { useRuntimeConfig } from "#imports";
-
 interface ApiResponse {
     _data: any;
     status: number;
