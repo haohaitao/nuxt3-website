@@ -12,6 +12,7 @@ export default withNuxt(
             "no-nested-ternary": ["error"],
             "@typescript-eslint/no-explicit-any": "off",
             "vue/no-multiple-template-root": "off",
+            "vue/html-self-closing": "off",
             "max-lines": [
                 "error",
                 {

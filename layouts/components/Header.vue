@@ -27,7 +27,7 @@
                     <nuxt-link to="/">
                         <li>首页</li>
                     </nuxt-link>
-                    <li class="sub-item">分类</li>
+                    <!-- <li class="sub-item">分类</li>
                     <nuxt-link to="/">
                         <li>每日一图</li>
                     </nuxt-link>
@@ -36,7 +36,7 @@
                     </nuxt-link>
                     <nuxt-link to="/">
                         <li>统计</li>
-                    </nuxt-link>
+                    </nuxt-link> -->
                     <nuxt-link to="/about">
                         <li>关于</li>
                     </nuxt-link>
@@ -49,7 +49,7 @@
                     <nuxt-link to="/">
                         <li>首页</li>
                     </nuxt-link>
-                    <li>
+                    <!-- <li>
                         <el-dropdown>
                             <span class="el-dropdown-link">
                                 分类<i
@@ -71,8 +71,8 @@
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>
-                    </li>
-                    <nuxt-link to="/">
+                    </li> -->
+                    <!-- <nuxt-link to="/">
                         <li>每日一图</li>
                     </nuxt-link>
                     <nuxt-link to="/">
@@ -80,7 +80,7 @@
                     </nuxt-link>
                     <nuxt-link to="/">
                         <li>统计</li>
-                    </nuxt-link>
+                    </nuxt-link> -->
                     <nuxt-link to="/about">
                         <li>关于</li>
                     </nuxt-link>
