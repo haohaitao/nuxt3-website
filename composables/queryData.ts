@@ -24,3 +24,10 @@ export const getPostsDetailsApi = (id: string) => {
 export const getPostsTagsApi = (id: number) => {
     return Http.get(`/wp-json/wp/v2/tags/${id}`, {});
 };
+
+/**
+ * 获取必应每日图片
+ */
+export const getBingPhotoApi = () => {
+    return Http.get(`/wp-json/wp/v2/pages/994`, {});
+};

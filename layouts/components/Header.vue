@@ -27,16 +27,9 @@
                     <nuxt-link to="/">
                         <li>首页</li>
                     </nuxt-link>
-                    <!-- <li class="sub-item">分类</li>
-                    <nuxt-link to="/">
+                    <nuxt-link to="/everyday">
                         <li>每日一图</li>
                     </nuxt-link>
-                    <nuxt-link to="/">
-                        <li>聊天室</li>
-                    </nuxt-link>
-                    <nuxt-link to="/">
-                        <li>统计</li>
-                    </nuxt-link> -->
                     <nuxt-link to="/about">
                         <li>关于</li>
                     </nuxt-link>
@@ -49,38 +42,9 @@
                     <nuxt-link to="/">
                         <li>首页</li>
                     </nuxt-link>
-                    <!-- <li>
-                        <el-dropdown>
-                            <span class="el-dropdown-link">
-                                分类<i
-                                    class="el-icon-arrow-down el-icon--right"
-                                />
-                            </span>
-                            <template #dropdown>
-                                <el-dropdown-menu>
-                                    <el-dropdown-item
-                                        icon="el-icon-star-on"
-                                        @click="selectItem('21')"
-                                        >JavaScript</el-dropdown-item
-                                    >
-                                    <el-dropdown-item
-                                        icon="el-icon-s-promotion"
-                                        @click="selectItem('221')"
-                                        >PHP</el-dropdown-item
-                                    >
-                                </el-dropdown-menu>
-                            </template>
-                        </el-dropdown>
-                    </li> -->
-                    <!-- <nuxt-link to="/">
+                    <nuxt-link to="/everyday">
                         <li>每日一图</li>
                     </nuxt-link>
-                    <nuxt-link to="/">
-                        <li>聊天室</li>
-                    </nuxt-link>
-                    <nuxt-link to="/">
-                        <li>统计</li>
-                    </nuxt-link> -->
                     <nuxt-link to="/about">
                         <li>关于</li>
                     </nuxt-link>
