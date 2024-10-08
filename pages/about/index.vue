@@ -14,10 +14,10 @@
                 />
             </p>
             <h2>关于本站</h2>
-            <p>使用vue全家桶写的前端页面</p>
+            <p>使用nuxt3构建的个人网站</p>
             <p>
-                主要用到的技术：vue-cli + vue2 + vuex + vue-router + axios +
-                element-ui
+                主要用到的技术：nuxt3 + vue3 + pinia + vue-router + less +
+                element-plus
             </p>
             <p>代码已开源，页脚有github的入口，欢迎交流，共同学习</p>
             <h2>关于博主</h2>

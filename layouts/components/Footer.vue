@@ -17,7 +17,10 @@
                     <a target="_blank" href="#">版权所有</a>&nbsp;
                 </span>
                 <span class="github relative top-[2px]">
-                    <a target="_blank" href="https://github.com/haohaitao">
+                    <a
+                        target="_blank"
+                        href="https://github.com/haohaitao/nuxt3-website"
+                    >
                         <el-icon><ElIconCoin /></el-icon>
                     </a>
                 </span>

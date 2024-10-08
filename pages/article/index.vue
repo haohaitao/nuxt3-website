@@ -1,11 +1,8 @@
 <template>
     <div>
-        <Head>
-            <Title>{{ blog.title }}</Title>
-        </Head>
         <article v-if="Object.keys(blog).length > 0" class="detail-article">
             <div class="art-header">
-                <h1>{{ blog.title }}</h1>
+                <h1>{{ blog.title.rendered }}</h1>
                 <div class="header-info">
                     <el-icon><ElIconNotebook /></el-icon>
                     <!-- <nuxt-link
@@ -33,7 +30,7 @@
                     {{ blog.date ? blog.date.split("T")["1"] : "1970-01-01" }}
                 </div>
             </div>
-            <div id="blog" @click.stop="" v-html="blog.content" />
+            <div id="blog" @click.stop="" v-html="blog.content.rendered" />
             <div class="content-footer">
                 <p>
                     本文由
@@ -122,16 +119,24 @@ const initTagData = async (tags) => {
         tagData.value = [];
     }
 };
-const initPage = () => {
-    getPostsDetailsApi(postId).then((res) => {
-        res.data.title = res.data.title.rendered;
-        res.data.content = res.data.content.rendered;
-        res.data.categories = res.data.categories["0"];
-        blog.value = res.data;
-        initTagData(res.data.tags);
-    });
-};
-initPage();
+
+const { data } = await useAsyncData(`/article/${postId}`, () =>
+    getPostsDetailsApi(postId)
+);
+const setTitle = data.value.data?.title?.rendered;
+const setDescription = data.value.data?.excerpt?.rendered;
+const setKeywords = data.value.data?.category_name;
+useSeoMeta({
+    title: setTitle,
+    keywords: setKeywords,
+    description: setDescription,
+});
+
+const { categories, tags } = data.value.data;
+blog.value = data.value.data;
+blog.value.categories = categories["0"];
+initTagData(tags);
+
 //跳转到标签分类页
 const jumpTagDetails = (item) => {
     router.push({ path: "/tag", query: { tagId: item.id } });
