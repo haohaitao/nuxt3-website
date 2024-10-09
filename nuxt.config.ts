@@ -18,7 +18,7 @@ export default defineNuxtConfig({
                     charset: "utf-8",
                 },
             ],
-            link: [],
+            link: [{ rel: "icon", href: "/favicon.ico", type: "image/x-icon" }],
             style: [],
             script: [
                 {

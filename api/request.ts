@@ -4,14 +4,13 @@ interface ApiResponse {
     headers: any;
 }
 
-const fetch = async (url: string | string[], options?: any) => {
+const fetch = async (url: string, options?: any) => {
     if (!String(url)) {
         console.warn("url is must be string!");
         return;
     }
     const runtimeConfig = useRuntimeConfig();
-    const reqUrl =
-        url.indexOf("http") > -1 ? url : runtimeConfig.app["BASE_URL"] + url;
+    const reqUrl = runtimeConfig.app["BASE_URL"] + url;
     return new Promise((resolve, reject) => {
         $fetch(reqUrl, {
             ...options,
@@ -19,7 +18,7 @@ const fetch = async (url: string | string[], options?: any) => {
                 if (response.status === 200) {
                     resolve({
                         data: response._data,
-                        total: response.headers.get("x-wp-total"),
+                        total: response?.headers?.get("x-wp-total"),
                     });
                 }
             },
