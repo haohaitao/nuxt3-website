@@ -52,6 +52,9 @@
                 </p>
                 <div id="vcomments" />
             </div>
+            <div class="comments">
+                <div @click="jumpTargetComments(blog)">发表评论</div>
+            </div>
         </article>
         <!-- 骨架屏占位 -->
         <article v-else class="skeleton-wrap detail-article">
@@ -140,6 +143,10 @@ initTagData(tags);
 //跳转到标签分类页
 const jumpTagDetails = (item) => {
     router.push({ path: "/tag", query: { tagId: item.id } });
+};
+// 跳转评论
+const jumpTargetComments = (data) => {
+    window.open(`${data.link}#single-widget`, "_blank");
 };
 </script>
 
@@ -230,6 +237,17 @@ article {
                 border-bottom: 1px solid #eb5055;
             }
         }
+    }
+    .comments {
+        background: #fff;
+        width: 100%;
+        margin: 0 10px 10px 0;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        text-align: center;
+        cursor: copy;
+        margin-top: 20px;
     }
 }
 #blog {
