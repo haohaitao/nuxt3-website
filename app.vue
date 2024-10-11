@@ -39,8 +39,8 @@ html {
 body {
     font-size: 12px;
     line-height: 1.5;
-    color: #515a6e;
-    background-color: #fff;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -131,7 +131,6 @@ button {
     width: 100px !important;
     font-size: 13px !important;
     box-shadow: none !important;
-    color: black !important;
     background: transparent;
     position: static !important;
     height: auto !important;
@@ -176,6 +175,10 @@ button {
     .section-article {
         width: 680px;
     }
+    .skeleton-wrap__item {
+        margin-left: 30px !important;
+        margin-right: 30px !important;
+    }
     .section-article article {
         margin-left: 30px !important;
         margin-right: 30px !important;
@@ -186,6 +189,10 @@ button {
     /* 每行显示两个博客时，中间空格减小 */
     .section-article {
         width: 640px;
+    }
+    .skeleton-wrap__item {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
     }
     .section-article article {
         margin-left: 20px !important;
@@ -210,6 +217,11 @@ button {
     .section-article {
         width: 100%;
     }
+    .skeleton-wrap__item {
+        width: 70% !important;
+        margin-left: 15% !important;
+        margin-right: 15% !important;
+    }
     .section-article article {
         width: 70% !important;
         margin-left: 15% !important;
@@ -227,7 +239,6 @@ button {
 @media screen and (max-width: 600px) {
     /* 头部菜单收起 */
     .head-page .home-left {
-        float: none !important;
         text-align: center;
     }
     .wrapper .tag_title {
@@ -241,9 +252,10 @@ button {
         top: 0;
         right: 6px;
         margin-left: 6px;
+        display: none;
     }
     .head-page .nav .nav-far {
-        visibility: hidden !important;
+        display: none !important;
     }
 }
 
@@ -261,6 +273,11 @@ button {
     /* 每行显示一个博客，左右外边框变小 */
     .section-article {
         width: 100%;
+    }
+    .skeleton-wrap__item {
+        width: 80% !important;
+        margin-left: 10% !important;
+        margin-right: 10% !important;
     }
     .section-article article {
         width: 80% !important;
@@ -293,6 +310,11 @@ button {
 @media screen and (max-width: 330px) {
     .section-article {
         width: 100%;
+    }
+    .skeleton-wrap__item {
+        width: 86% !important;
+        margin-left: 7% !important;
+        margin-right: 7% !important;
     }
     .section-article article {
         width: 86% !important;

@@ -3,7 +3,10 @@
         <div class="container">
             <!-- 需要用到的竖线使用全角竖线｜ -->
             <div class="flex items-center justify-center">
-                <a href="http://www.beian.miit.gov.cn/" target="_blank"
+                <a
+                    style="color: var(--text-color)"
+                    href="http://www.beian.miit.gov.cn/"
+                    target="_blank"
                     >豫ICP备17023037号-1</a
                 >
                 <!-- 移动端显示 -->
@@ -12,9 +15,11 @@
                 </el-backtop>
             </div>
             <div class="link-git flex items-center justify-center">
-                <span class="name">
+                <span class="name" style="color: var(--text-color)">
                     Copyright © 2019-2024&nbsp;
-                    <a target="_blank" href="#">版权所有</a>&nbsp;
+                    <a target="_blank" style="color: var(--text-color)" href="#"
+                        >版权所有</a
+                    >&nbsp;
                 </span>
                 <span class="github relative top-[2px]">
                     <a
@@ -48,7 +53,9 @@ if (import.meta.client) {
 footer {
     padding-top: 50px;
     height: 120px;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--bg-color);
+    color: var(--text-color);
+
     a {
         color: #666;
     }
@@ -66,11 +73,11 @@ footer {
     .backTop-icon {
         height: 100%;
         width: 100%;
-        background-color: #f2f5f6;
+        background-color: var(--bg-color);
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
         text-align: center;
         line-height: 40px;
-        color: #1989fa;
+        color: var(--text-color);
     }
 }
 </style>

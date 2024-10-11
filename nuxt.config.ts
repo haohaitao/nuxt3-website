@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     css: [
         "~/assets/animate.css",
         "~/assets/highlight.css",
+        "~/assets/themes.css",
         "element-plus/dist/index.css",
         "element-plus/theme-chalk/display.css",
     ],

@@ -1,7 +1,7 @@
 <template>
     <div class="animated bounce">
         <main>
-            <p data-allow-mismatch>
+            <p data-allow-mismatch style="color: var(--text-color)">
                 今天是{{ time }}，欢迎来自【{{ city }}】的朋友！
             </p>
             <SectionArticle :blog-list="blogList" />

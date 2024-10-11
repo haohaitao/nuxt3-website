@@ -1,12 +1,6 @@
 <template>
     <header class="head-page">
         <div class="container">
-            <div class="home-left">
-                <div class="page-name">
-                    <nuxt-link id="name" to="/">Hao</nuxt-link>
-                </div>
-            </div>
-
             <!-- 移动端菜单 -->
             <div
                 class="nav-coll-menu"
@@ -35,8 +29,12 @@
                 </ul>
             </div>
             <!-- 移动端菜单 end -->
-
-            <div class="nav right">
+            <div class="home-left">
+                <div class="page-name">
+                    <nuxt-link id="name" to="/">Hao</nuxt-link>
+                </div>
+            </div>
+            <div class="nav">
                 <ul class="nav-far">
                     <nuxt-link to="/">
                         <li>首页</li>
@@ -49,22 +47,47 @@
                     </nuxt-link>
                 </ul>
             </div>
+            <div ref="switchRef" class="home-right mr-[38px]">
+                <el-switch
+                    v-model="switchTheme"
+                    size="large"
+                    inline-prompt
+                    @change="handleChangeTheme"
+                >
+                    <template #active-action>
+                        <el-icon><Moon /></el-icon>
+                    </template>
+                    <template #inactive-action>
+                        <el-icon><Sunny /></el-icon>
+                    </template>
+                </el-switch>
+            </div>
         </div>
     </header>
 </template>
 
 <script setup>
 import gsap from "gsap";
+import { Sunny, Moon } from "@element-plus/icons-vue";
 
+const route = useRoute();
+const switchRef = ref();
+const switchTheme = ref(false);
 const isVisibleNavFar = ref(false);
 const closeCollMenu = () => {
     isVisibleNavFar.value = !isVisibleNavFar.value;
 };
 
+watch(
+    () => route.fullPath,
+    () => {
+        isVisibleNavFar.value = false;
+    }
+);
+
 const initDefaultAnimation = () => {
     const pageTitle = document.getElementById("name");
     const textContent = pageTitle.textContent;
-    console.log("textContent...", textContent);
     // 创建一个新的容器来存放拆分后的字符
     const container = document.createElement("div");
     container.style = "display:flex;color:#d7385e;font-weight:bold;";
@@ -101,6 +124,48 @@ const initDefaultAnimation = () => {
         }
     );
 };
+const handleChangeTheme = () => {
+    const rect = switchRef.value.getBoundingClientRect();
+    const position = {
+        clientY: rect.top,
+        clientX: rect.left + 40,
+    };
+    // 获取到 transition API 实例
+    const transition = document.startViewTransition(() => {
+        document.documentElement.classList.toggle("dark");
+    });
+
+    // 在 transition.ready 的 Promise 完成后，执行自定义动画
+    transition.ready.then(() => {
+        // 由于我们要从鼠标点击的位置开始做动画，所以我们需要先获取到鼠标的位置
+        const clientX = position.clientX;
+        const clientY = position.clientY;
+        // 计算半径，以鼠标点击的位置为圆心，到四个角的距离中最大的那个作为半径
+        const radius = Math.hypot(
+            Math.max(clientX, innerWidth - clientX),
+            Math.max(clientY, innerHeight - clientY)
+        );
+        const clipPath = [
+            `circle(0% at ${clientX}px ${clientY}px)`,
+            `circle(${radius}px at ${clientX}px ${clientY}px)`,
+        ];
+        const isDark = document.documentElement.classList.contains("dark");
+        // 自定义动画
+        document.documentElement.animate(
+            {
+                // 如果要切换到暗色主题，我们在过渡的时候从半径 100% 的圆开始，到 0% 的圆结束
+                clipPath: isDark ? clipPath.reverse() : clipPath,
+            },
+            {
+                duration: 500,
+                // 如果要切换到暗色主题，我们应该裁剪 view-transition-old(root) 的内容
+                pseudoElement: isDark
+                    ? "::view-transition-old(root)"
+                    : "::view-transition-new(root)",
+            }
+        );
+    });
+};
 onMounted(() => {
     nextTick(() => {
         initDefaultAnimation();
@@ -110,7 +175,8 @@ onMounted(() => {
 
 <style lang="less" scoped>
 header {
-    background: rgba(255, 255, 255, 0.94);
+    background: var(--bg-color);
+    color: var(--text-color);
     width: 100%;
     height: 70px;
     position: fixed;
@@ -122,6 +188,9 @@ header {
         max-width: 100%;
         margin: 0 auto;
         height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         color: #3c3c3c;
         a {
             color: #3c3c3c;
@@ -132,7 +201,6 @@ header {
             height: 100%;
             line-height: 70px;
             font-size: 24px;
-            float: left;
             .page-name {
                 display: inline-flex;
                 align-items: center;
@@ -151,14 +219,13 @@ header {
             position: relative;
 
             .nav-far {
-                margin-right: 38px;
                 display: flex;
                 align-items: center;
                 li {
                     position: relative;
-                    float: left;
                     margin: 0 16px;
                     list-style: none;
+                    color: var(--text-color);
                 }
             }
         }
@@ -168,10 +235,7 @@ header {
     }
     /* 小菜单 */
     .nav-coll-menu {
-        position: absolute;
         width: 20px;
-        top: 15px;
-        left: 6px;
         cursor: url(../assets/pic/cursor.cur), pointer;
         z-index: 1;
         display: none;
@@ -254,7 +318,7 @@ header {
             width: 130px;
             margin-top: 0;
             box-shadow: 0 0 4px 0 #d4d4d4;
-            background: rgba(255, 255, 255, 0.92);
+            background: var(--bg-color);
             font-size: 14px;
             padding-left: 0;
             li {
@@ -263,6 +327,7 @@ header {
                 line-height: 50px;
                 transition: 0.4s;
                 list-style: none;
+                color: var(--text-color);
                 &:hover {
                     transition: 0.4s;
                     padding: 0 32px;

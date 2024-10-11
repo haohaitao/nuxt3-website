@@ -71,7 +71,7 @@
                 <template #template>
                     <el-skeleton-item
                         variant="image"
-                        style="width: 280px; height: 230px"
+                        style="width: 100%; height: 230px"
                     />
                     <div class="p-[14px]">
                         <el-skeleton-item variant="p" />
@@ -120,13 +120,6 @@ const setLink = computed(() => (val) => {
         ? `background: url(${val.content_first_image}) 100% 100% / 100% 100%`
         : "";
 });
-
-const initPage = () => {
-    if (props.blogList.length > 0) {
-        blogShowList.value = props.blogList;
-    }
-};
-initPage();
 
 const jumpDetail = (val) => {
     initSeoConfig.updateSeoConfig(val);
@@ -329,6 +322,9 @@ section {
         max-width: 960px;
         margin: 0 auto;
         box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         &__item {
             width: 280px;
             height: 340px;

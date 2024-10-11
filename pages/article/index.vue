@@ -2,7 +2,9 @@
     <div>
         <article v-if="Object.keys(blog).length > 0" class="detail-article">
             <div class="art-header">
-                <h1>{{ blog.title.rendered }}</h1>
+                <h1 style="color: var(--text-color)">
+                    {{ blog.title.rendered }}
+                </h1>
                 <div class="header-info">
                     <el-icon><ElIconNotebook /></el-icon>
                     <!-- <nuxt-link
@@ -21,6 +23,7 @@
                     <el-tag
                         v-for="item in tagData"
                         :key="item.id"
+                        style="--el-tag-text-color: var(--tag-color)"
                         @click="jumpTagDetails(item)"
                         >{{ item.name }}</el-tag
                     >
@@ -172,7 +175,8 @@ article {
     max-width: 700px;
     padding: 0 25px 30px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     position: relative;
     text-align: left;
     font-size: 15px;
@@ -230,7 +234,7 @@ article {
     .content-footer {
         border-top: 1px solid #e0e0e0;
         padding-top: 26px;
-        color: #24292e;
+        color: var(--text-color);
         font-size: 14px;
         text-align: center;
 
@@ -243,7 +247,8 @@ article {
         }
     }
     .comments {
-        background: #fff;
+        background: var(--bg-color);
+        color: var(--text-color);
         width: 100%;
         margin: 0 10px 10px 0;
         padding: 5px;
@@ -256,6 +261,7 @@ article {
 }
 #blog-content {
     padding-top: 15px;
+    width: 100%;
     :deep(h2) {
         font-size: 17px;
         line-height: 190%;
@@ -270,6 +276,9 @@ article {
         margin: auto 3px;
         padding: 2px 4px;
         border-radius: 5px;
+    }
+    :deep(img) {
+        width: 100%;
     }
 }
 .drawerTitle {
