@@ -57,7 +57,7 @@ a:hover {
     -webkit-transition: 0.3s;
     transition: 0.3s;
 }
-#blog h5:before {
+#blog-content h5:before {
     margin-right: 5px;
     content: "#";
     color: #f72d84;

@@ -28,7 +28,7 @@ const content = ref("");
 getBingPhotoApi().then((res) => {
     content.value = res.data?.content?.rendered;
     if (import.meta.client) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0 });
     }
 });
 

@@ -30,7 +30,11 @@
                     {{ blog.date ? blog.date.split("T")["1"] : "1970-01-01" }}
                 </div>
             </div>
-            <div id="blog" @click.stop="" v-html="blog.content.rendered" />
+            <div
+                id="blog-content"
+                @click.stop=""
+                v-html="blog.content.rendered"
+            />
             <div class="content-footer">
                 <p>
                     本文由
@@ -250,8 +254,23 @@ article {
         margin-top: 20px;
     }
 }
-#blog {
+#blog-content {
     padding-top: 15px;
+    :deep(h2) {
+        font-size: 17px;
+        line-height: 190%;
+        margin: 10px -21px;
+        padding: 0 44px;
+        font-weight: bold;
+        border-left: 5px solid #e40000;
+    }
+    :deep(code) {
+        background: #fee;
+        color: #555;
+        margin: auto 3px;
+        padding: 2px 4px;
+        border-radius: 5px;
+    }
 }
 .drawerTitle {
     padding: 20px 0 20px 30px;

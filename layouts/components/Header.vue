@@ -3,8 +3,7 @@
         <div class="container">
             <div class="home-left">
                 <div class="page-name">
-                    <el-icon size="20"><ElIconPosition /></el-icon>
-                    <nuxt-link to="/">Hao</nuxt-link>
+                    <nuxt-link id="name" to="/">Hao</nuxt-link>
                 </div>
             </div>
 
@@ -55,11 +54,58 @@
 </template>
 
 <script setup>
+import gsap from "gsap";
+
 const isVisibleNavFar = ref(false);
-const selectItem = () => {};
 const closeCollMenu = () => {
     isVisibleNavFar.value = !isVisibleNavFar.value;
 };
+
+const initDefaultAnimation = () => {
+    const pageTitle = document.getElementById("name");
+    const textContent = pageTitle.textContent;
+    console.log("textContent...", textContent);
+    // 创建一个新的容器来存放拆分后的字符
+    const container = document.createElement("div");
+    container.style = "display:flex;color:#d7385e;font-weight:bold;";
+    // 清空原始文本
+    pageTitle.innerHTML = "";
+    // 拆分文本并创建 DOM 元素
+    for (let i = 0; i < textContent.length; i++) {
+        const char = textContent[i];
+        const div = document.createElement("div");
+        div.textContent = char;
+        container.appendChild(div);
+    }
+    // 将新容器插入到原始元素的位置
+    pageTitle.appendChild(container);
+    // 动画处理
+    const chars = container.querySelectorAll("div");
+    // gsap.to triggers animations
+    gsap.to(
+        // The array of letters
+        chars,
+        // Animation duration in seconds
+        0.7,
+        {
+            // Translate on X axis -40 pixels
+            x: "15",
+            // Smooth out the stop/start with easeInOut
+            ease: "power2.inOut",
+            // Reverse the animation back to start
+            yoyo: true,
+            // Delay the next item in seconds
+            stagger: 0.08,
+            // Infinite repeat
+            repeat: -1,
+        }
+    );
+};
+onMounted(() => {
+    nextTick(() => {
+        initDefaultAnimation();
+    });
+});
 </script>
 
 <style lang="less" scoped>
@@ -71,7 +117,6 @@ header {
     top: 0;
     z-index: 1;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-
     .container {
         width: 1080px;
         max-width: 100%;
