@@ -70,7 +70,8 @@ const initPage = async () => {
         blogList.value = res.data;
         total.value = Number(res.total);
         if (import.meta.client) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            // window.scrollTo({ top: 0, behavior: "smooth" });
+            window.scrollTo({ top: 0 });
         }
     });
 };
