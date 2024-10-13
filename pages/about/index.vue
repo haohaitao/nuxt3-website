@@ -17,9 +17,9 @@
             <p>使用nuxt3构建的个人网站</p>
             <p>
                 主要用到的技术：nuxt3 + vue3 + pinia + vue-router + less +
-                element-plus
+                element-plus + docker
             </p>
-            <p>代码已开源，页脚有github的入口，欢迎交流，共同学习</p>
+            <p>代码已开源，欢迎交流，共同学习</p>
             <h2>关于博主</h2>
             <p>曾梦想仗剑走天涯，看一看世界的繁华，后来工作太忙没去。</p>
             <h2>送给自己</h2>

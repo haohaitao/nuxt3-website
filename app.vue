@@ -135,6 +135,7 @@ button {
     position: static !important;
     height: auto !important;
     text-decoration: underline;
+    background: transparent;
 }
 .el-backtop:hover {
     background-color: transparent !important;
@@ -147,6 +148,12 @@ button {
     }
     footer .Mobile_goback {
         display: block;
+    }
+    footer .footer-github {
+        display: block;
+    }
+    header .header-github {
+        display: none;
     }
     .chat_side {
         width: 90% !important;
@@ -167,6 +174,12 @@ button {
     }
     footer .Mobile_goback {
         display: none;
+    }
+    footer .footer-github {
+        display: none;
+    }
+    header .header-github {
+        display: block;
     }
 }
 
