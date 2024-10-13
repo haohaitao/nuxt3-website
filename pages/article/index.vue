@@ -23,7 +23,6 @@
                     <el-tag
                         v-for="item in tagData"
                         :key="item.id"
-                        style="--el-tag-text-color: var(--tag-color)"
                         @click="jumpTagDetails(item)"
                         >{{ item.name }}</el-tag
                     >
@@ -278,7 +277,7 @@ article {
         border-radius: 5px;
     }
     :deep(img) {
-        width: 100%;
+        max-width: 100%;
     }
 }
 .drawerTitle {

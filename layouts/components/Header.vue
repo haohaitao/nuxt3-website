@@ -47,20 +47,23 @@
                     </nuxt-link>
                 </ul>
             </div>
-            <div ref="switchRef" class="home-right mr-[38px]">
-                <el-switch
-                    v-model="switchTheme"
-                    size="large"
-                    inline-prompt
-                    @change="handleChangeTheme"
+            <div ref="switchRef" class="home-right mr-[38px] cursor-pointer">
+                <el-icon
+                    v-if="currentTheme === 'dark'"
+                    color="#ffffff"
+                    :size="20"
+                    @click="handleChangeTheme"
                 >
-                    <template #active-action>
-                        <el-icon><Moon /></el-icon>
-                    </template>
-                    <template #inactive-action>
-                        <el-icon><Sunny /></el-icon>
-                    </template>
-                </el-switch>
+                    <Moon />
+                </el-icon>
+                <el-icon
+                    v-else
+                    color="#000000"
+                    :size="20"
+                    @click="handleChangeTheme"
+                >
+                    <Sunny />
+                </el-icon>
             </div>
         </div>
     </header>
@@ -69,10 +72,17 @@
 <script setup>
 import gsap from "gsap";
 import { Sunny, Moon } from "@element-plus/icons-vue";
+import { useDark, useToggle } from "@vueuse/core";
 
+const isDark = useDark({
+    storageKey: "theme-color",
+    valueDark: "dark",
+    valueLight: "light",
+});
+const toggleDark = useToggle(isDark);
+const currentTheme = ref("");
 const route = useRoute();
 const switchRef = ref();
-const switchTheme = ref(false);
 const isVisibleNavFar = ref(false);
 const closeCollMenu = () => {
     isVisibleNavFar.value = !isVisibleNavFar.value;
@@ -127,15 +137,15 @@ const initDefaultAnimation = () => {
 const handleChangeTheme = () => {
     const rect = switchRef.value.getBoundingClientRect();
     const position = {
-        clientY: rect.top,
-        clientX: rect.left + 40,
+        clientY: rect.top + 10,
+        clientX: rect.left + 20,
     };
     // 获取到 transition API 实例
     const transition = document.startViewTransition(() => {
-        document.documentElement.classList.toggle("dark");
+        toggleDark();
     });
 
-    // 在 transition.ready 的 Promise 完成后，执行自定义动画
+    // // 在 transition.ready 的 Promise 完成后，执行自定义动画
     transition.ready.then(() => {
         // 由于我们要从鼠标点击的位置开始做动画，所以我们需要先获取到鼠标的位置
         const clientX = position.clientX;
@@ -164,11 +174,13 @@ const handleChangeTheme = () => {
                     : "::view-transition-new(root)",
             }
         );
+        currentTheme.value = localStorage.getItem("theme-color") || "";
     });
 };
 onMounted(() => {
     nextTick(() => {
         initDefaultAnimation();
+        currentTheme.value = localStorage.getItem("theme-color") || "";
     });
 });
 </script>

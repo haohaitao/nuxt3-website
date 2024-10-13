@@ -35,6 +35,7 @@ export default defineNuxtConfig({
         "~/assets/themes.css",
         "element-plus/dist/index.css",
         "element-plus/theme-chalk/display.css",
+        "element-plus/theme-chalk/dark/css-vars.css",
     ],
     compatibilityDate: "2024-04-03",
     devtools: { enabled: true },
@@ -63,6 +64,7 @@ export default defineNuxtConfig({
             },
         ],
         "pinia-plugin-persistedstate/nuxt",
+        "@vueuse/nuxt",
     ],
     build: {
         transpile: [/^@nuxtjs\/tailwindcss$/],
