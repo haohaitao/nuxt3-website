@@ -278,6 +278,9 @@ article {
     :deep(img) {
         max-width: 100%;
     }
+    :deep(ol li) {
+        list-style: decimal !important;
+    }
 }
 .drawerTitle {
     padding: 20px 0 20px 30px;
