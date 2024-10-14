@@ -204,7 +204,6 @@ article {
                 }
 
                 font-size: 14px;
-                margin-top: -2px;
             }
         }
         .header-tag {

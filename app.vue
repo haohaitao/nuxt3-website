@@ -135,7 +135,7 @@ button {
     position: static !important;
     height: auto !important;
     text-decoration: underline;
-    background: transparent;
+    background: transparent !important;
 }
 .el-backtop:hover {
     background-color: transparent !important;
