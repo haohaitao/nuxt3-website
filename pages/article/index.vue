@@ -260,6 +260,7 @@ article {
 #blog-content {
     padding-top: 15px;
     width: 100%;
+    text-align: justify;
     :deep(h2) {
         font-size: 17px;
         line-height: 190%;
