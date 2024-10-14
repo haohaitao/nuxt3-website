@@ -58,6 +58,16 @@
 └── tsconfig.json
 ```
 
+## 效果
+
+### 首页
+
+![首页](https://s2.loli.net/2024/10/14/zgehSPt527RxmKM.png)
+
+### 详情
+
+![文章详情](https://s2.loli.net/2024/10/14/wohXZJK9BL4c7Hj.png)
+
 ## 运行
 
 Make sure to install the dependencies:
