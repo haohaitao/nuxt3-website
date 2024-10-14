@@ -46,15 +46,7 @@
                             effect="dark"
                             placement="top-end"
                         >
-                            <div
-                                data-allow-mismatch
-                                class="item-icon"
-                                :style="{
-                                    backgroundPosition: `0 ${
-                                        -Math.floor(Math.random() * 4 + 1) * 70
-                                    }px`,
-                                }"
-                            />
+                            <Icon icon="codicon:tag" class="item-icon" />
                         </el-tooltip>
                     </nuxt-link>
                 </div>
@@ -101,6 +93,8 @@
 </template>
 
 <script setup>
+import { Icon } from "@iconify/vue";
+
 const initSeoConfig = useSeoConfigStore();
 const router = useRouter();
 const props = defineProps({
@@ -307,11 +301,10 @@ section {
                 }
 
                 .item-icon {
-                    background: url(~/assets/imgs/bg-ico.png) no-repeat;
-                    height: 37px;
-                    width: 36px;
+                    font-size: 24px;
                     float: right;
                     border-radius: 50%;
+                    outline: none;
                     background-size: cover;
                 }
             }
