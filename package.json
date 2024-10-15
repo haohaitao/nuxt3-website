@@ -1,9 +1,11 @@
 {
-    "name": "vue-website",
+    "name": "nuxt3-website",
     "version": "0.01",
     "description": "使用nuxt3构建web应用",
     "private": true,
-    "type": "module",
+    "engines": {
+        "node": "^18.20.*"
+    },
     "scripts": {
         "build": "nuxt build",
         "dev": "nuxt dev",
@@ -11,7 +13,10 @@
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
         "lint": "eslint .",
-        "lint:fix": "eslint . --fix"
+        "lint:fix": "eslint . --fix",
+        "lint:prettier": "prettier --write",
+        "commit": "git add . && git-cz",
+        "pre-commit": "lint-staged"
     },
     "dependencies": {
         "@nuxt/eslint": "^0.5.7",
@@ -26,14 +31,35 @@
         "vue-router": "latest"
     },
     "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-angular": "^17.0.3",
+        "@commitlint/cz-commitlint": "^17.0.3",
+        "commitizen": "^4.2.4",
         "@element-plus/nuxt": "^1.0.10",
         "@iconify/vue": "^4.1.2",
         "@nuxtjs/tailwindcss": "^6.12.1",
         "@vueuse/core": "^11.1.0",
         "@vueuse/nuxt": "^11.1.0",
-        "dayjs-nuxt": "^2.1.11"
+        "dayjs-nuxt": "^2.1.11",
+        "husky": "9.1.6",
+        "lint-staged": "^15.2.10",
+        "prettier": "^3.1.1"
     },
     "overrides": {
         "vue": "latest"
+    },
+    "lint-staged": {
+        "*.{js,ts,vue,jsx,tsx}": [
+            "eslint --cache --fix"
+        ],
+        "*.{js,jsx,ts,tsx,md,html,css,lees,scss,sass}": "prettier --write"
+    },
+    "config": {
+        "commitizen": {
+            "path": "@commitlint/cz-commitlint"
+        }
+    },
+    "gitHooks": {
+        "pre-commit": "lint-staged"
     }
 }
