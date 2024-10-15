@@ -33,6 +33,10 @@ export default defineNuxtConfig({
 			noscript: [],
 		},
 	},
+	site: {
+		url: 'https://nuxt-vue.haoht123.com',
+		name: '郝海涛的个人网站',
+	},
 	css: [
 		'~/assets/animate.css',
 		'~/assets/highlight.css',
@@ -81,6 +85,7 @@ export default defineNuxtConfig({
 				},
 			},
 		],
+		'@nuxtjs/sitemap',
 	],
 	build: {
 		transpile: [/^@nuxtjs\/tailwindcss$/],
