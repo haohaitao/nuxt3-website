@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 		},
 	},
 	site: {
-		url: 'https://nuxt-vue.haoht123.com',
+		url: siteConfig.url,
 		name: '郝海涛的个人网站',
 	},
 	css: [
@@ -56,12 +56,7 @@ export default defineNuxtConfig({
 			BASE_URL: 'https://www.haoht123.com',
 		},
 	},
-	nitro: {
-		prerender: {
-			crawlLinks: true,
-			routes: ['/', 'sitemap.xml'],
-		},
-	},
+	nitro: {},
 	modules: [
 		'@element-plus/nuxt',
 		'dayjs-nuxt',
