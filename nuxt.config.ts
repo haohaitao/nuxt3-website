@@ -56,7 +56,12 @@ export default defineNuxtConfig({
 			BASE_URL: 'https://www.haoht123.com',
 		},
 	},
-	nitro: {},
+	nitro: {
+		prerender: {
+			crawlLinks: true,
+			routes: ['/', 'sitemap.xml'],
+		},
+	},
 	modules: [
 		'@element-plus/nuxt',
 		'dayjs-nuxt',
@@ -87,6 +92,10 @@ export default defineNuxtConfig({
 		],
 		'@nuxtjs/sitemap',
 	],
+	sitemap: {
+		sources: ['/api/sitemap'],
+		cacheMaxAgeSeconds: 604800, // 7 day
+	},
 	build: {
 		transpile: [/^@nuxtjs\/tailwindcss$/],
 	},
