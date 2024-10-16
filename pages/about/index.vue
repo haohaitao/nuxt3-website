@@ -39,6 +39,7 @@ useSeoMeta({
 	.content {
 		text-align: left;
 		line-height: 30px;
+		color: var(--text-color);
 		&p:nth-child(1) {
 			text-align: center;
 		}
