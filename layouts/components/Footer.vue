@@ -3,16 +3,16 @@
 		<div class="container">
 			<!-- 需要用到的竖线使用全角竖线｜ -->
 			<div class="flex items-center justify-center">
-				<a style="color: var(--text-color)" href="http://www.beian.miit.gov.cn/" target="_blank">豫ICP备17023037号-1</a>
+				<a href="http://www.beian.miit.gov.cn/" target="_blank">豫ICP备17023037号-1</a>
 				<!-- 移动端显示 -->
-				<el-backtop class="Mobile_goback">
+				<el-backtop class="mobile-back">
 					<div>返回顶部</div>
 				</el-backtop>
 			</div>
 			<div class="link-git flex justify-center">
-				<span class="name" style="color: var(--text-color)">
+				<span class="copyright">
 					Copyright © 2019-2024&nbsp;
-					<a target="_blank" style="color: var(--text-color)" href="#">版权所有</a>&nbsp;
+					<a target="_blank" href="#">版权所有</a>&nbsp;
 				</span>
 				<span class="footer-github relative top-[2px]">
 					<Nuxt-Link to="https://github.com/haohaitao/nuxt3-website" target="_blank">
@@ -68,7 +68,7 @@ footer {
 	color: var(--text-color);
 
 	a {
-		color: #666;
+		color: var(--text-color);
 	}
 	.container {
 		width: 1080px;
@@ -88,6 +88,9 @@ footer {
 		box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
 		text-align: center;
 		line-height: 40px;
+		color: var(--text-color);
+	}
+	.copyright {
 		color: var(--text-color);
 	}
 }

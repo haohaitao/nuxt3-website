@@ -2,7 +2,7 @@
 	<header class="head-page">
 		<div class="container">
 			<!-- 移动端菜单 -->
-			<div class="nav-coll-menu" :class="{ 'nav-coll-menu-padd': isVisibleNavFar }">
+			<div class="nav-coll-menu" :class="{ 'nav-coll-menu-add': isVisibleNavFar }">
 				<span class="icon-menu cross" :class="{ 'icon-menu-close': isVisibleNavFar }">
 					<span class="middle" />
 				</span>
@@ -43,7 +43,6 @@
 				<Icon
 					v-if="currentTheme === 'dark'"
 					icon="line-md:sunny-outline-to-moon-alt-loop-transition"
-					style="font-size: 24px; color: #ffffff"
 					class="text-[24px] text-[#ffffff]"
 					@click="handleChangeTheme"
 				></Icon>
@@ -230,7 +229,7 @@ header {
 			}
 		}
 	}
-	.nav-coll-menu-padd {
+	.nav-coll-menu-add {
 		padding-bottom: 29px !important;
 	}
 	/* 小菜单 */
@@ -257,7 +256,7 @@ header {
 			&::before {
 				top: 7px !important;
 				transform: rotate(45deg) !important;
-				background: #313131 !important;
+				background: var(--text-color) !important;
 			}
 			&::after {
 				bottom: 7px !important;
@@ -302,7 +301,7 @@ header {
 				height: 2px;
 				margin-top: -1px;
 				transition: all 0.4s ease-in-out;
-				background: #313131;
+				background: var(--text-color);
 			}
 		}
 

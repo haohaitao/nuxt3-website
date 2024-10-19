@@ -1,13 +1,5 @@
 {
-    // Enable ESlint flat config support
-    "eslint.useFlatConfig": true,
-    "cSpell.words": [
-        "backtop",
-        "iconfont",
-        "Nuxt",
-        "pageviews",
-        "nuxtjs",
-        "tailwindcss",
-        "pinia"
-    ]
+	// Enable ESlint flat config support
+	"eslint.useFlatConfig": true,
+	"cSpell.words": ["backtop", "iconfont", "Nuxt", "pageviews", "nuxtjs", "tailwindcss", "pinia", "codicon"]
 }

@@ -2,15 +2,11 @@
 	<div>
 		<article v-if="Object.keys(blog).length > 0" class="detail-article">
 			<div class="art-header">
-				<h1 style="color: var(--text-color)">
+				<h1>
 					{{ blog.title.rendered }}
 				</h1>
 				<div class="header-info">
 					<el-icon><ElIconNotebook /></el-icon>
-					<!-- <nuxt-link
-                        :to="`/category?categoryId=${blog.categories}`"
-                        >{{ blog.category_name }}</nuxt-link
-                    > -->
 					{{ blog.category_name }}
 					<el-icon><ElIconCalendar /></el-icon>
 					{{ blog.post_date }}
@@ -153,9 +149,9 @@ article {
 
 		h1 {
 			font-size: 22px;
-			color: #222;
 			font-weight: 400;
 			line-height: 1.8;
+			color: var(--text-color);
 		}
 
 		.header-info {
