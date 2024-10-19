@@ -1,20 +1,12 @@
 :root {
-    /* 亮色模式下的背景色 */
-    --bg-color: #ffffff;
-    --text-color: #515a6e;
-    --tag-color: #409eff;
+	/* 亮色模式下的背景色 */
+	--bg-color: #ffffff;
+	--text-color: #515a6e;
+	--tag-color: #409eff;
 }
 :root.dark {
-    /* 暗色模式下的背景色 */
-    --bg-color: #000000;
-    --text-color: #ffffff;
-    --tag-color: #000000;
-}
-::view-transition-new(root),
-::view-transition-old(root) {
-    /* 关闭默认动画，否则影响自定义动画的执行 */
-    animation: none;
-}
-.dark::view-transition-old(root) {
-    z-index: 100;
+	/* 暗色模式下的背景色 */
+	--bg-color: #000000;
+	--text-color: #ffffff;
+	--tag-color: #000000;
 }

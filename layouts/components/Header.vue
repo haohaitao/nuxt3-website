@@ -38,7 +38,7 @@
 					</nuxt-link>
 				</ul>
 			</div>
-			<div ref="switchRef" class="home-right mr-[38px] cursor-pointer flex gap-3.5 items-center">
+			<div class="home-right mr-[38px] cursor-pointer flex gap-3.5 items-center">
 				<AlgoliaDocSearch />
 				<Icon
 					v-if="currentTheme === 'dark'"
@@ -76,7 +76,6 @@ const isDark = useDark({
 const toggleDark = useToggle(isDark);
 const currentTheme = ref('');
 const route = useRoute();
-const switchRef = ref();
 const isVisibleNavFar = ref(false);
 const closeCollMenu = () => {
 	isVisibleNavFar.value = !isVisibleNavFar.value;
@@ -129,39 +128,13 @@ const initDefaultAnimation = () => {
 	);
 };
 const handleChangeTheme = () => {
-	const rect = switchRef.value.getBoundingClientRect();
-	const position = {
-		clientY: rect.top + 20,
-		clientX: rect.left < 1000 ? rect.left + 80 : rect.left + 175,
-	};
 	// 获取到 transition API 实例
-	const transition = document.startViewTransition(() => {
+	document.startViewTransition(() => {
 		toggleDark();
-	});
-
-	// // 在 transition.ready 的 Promise 完成后，执行自定义动画
-	transition.ready.then(() => {
-		// 由于我们要从鼠标点击的位置开始做动画，所以我们需要先获取到鼠标的位置
-		const clientX = position.clientX;
-		const clientY = position.clientY;
-		// 计算半径，以鼠标点击的位置为圆心，到四个角的距离中最大的那个作为半径
-		const radius = Math.hypot(Math.max(clientX, innerWidth - clientX), Math.max(clientY, innerHeight - clientY));
-		const clipPath = [`circle(0% at ${clientX}px ${clientY}px)`, `circle(${radius}px at ${clientX}px ${clientY}px)`];
-		const isDark = document.documentElement.classList.contains('dark');
-		document.querySelector('html').setAttribute('data-theme', `${isDark ? 'dark' : 'light'}`);
-		// 自定义动画
-		document.documentElement.animate(
-			{
-				// 如果要切换到暗色主题，我们在过渡的时候从半径 100% 的圆开始，到 0% 的圆结束
-				clipPath: isDark ? clipPath.reverse() : clipPath,
-			},
-			{
-				duration: 500,
-				// 如果要切换到暗色主题，我们应该裁剪 view-transition-old(root) 的内容
-				pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
-			},
-		);
-		currentTheme.value = localStorage.getItem('theme-color') || '';
+		nextTick(() => {
+			document.querySelector('html').setAttribute('data-theme', `${isDark.value ? 'dark' : 'light'}`);
+			currentTheme.value = localStorage.getItem('theme-color') || '';
+		});
 	});
 };
 onMounted(() => {
