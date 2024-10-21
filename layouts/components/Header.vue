@@ -1,5 +1,12 @@
 <template>
-	<header class="head-page">
+	<header
+		class="head-page z-50 h-[4rem] bg-white shadow-md dark:bg-[#212526] transition-transform duration-300 sticky top-0 w-full"
+		:class="{
+			'overflow-hidden': isOpen,
+			'-translate-y-full': isHidden,
+			'translate-y-0': !isHidden,
+		}"
+	>
 		<div class="container">
 			<!-- 移动端菜单 -->
 			<div class="nav-coll-menu" :class="{ 'nav-coll-menu-add': isVisibleNavFar }">
@@ -77,6 +84,10 @@ const toggleDark = useToggle(isDark);
 const currentTheme = ref('');
 const route = useRoute();
 const isVisibleNavFar = ref(false);
+const isOpen = ref(false);
+const isHidden = ref(false);
+const lastScrollPosition = ref(0);
+
 const closeCollMenu = () => {
 	isVisibleNavFar.value = !isVisibleNavFar.value;
 };
@@ -137,11 +148,34 @@ const handleChangeTheme = () => {
 		});
 	});
 };
+
+const handleScroll = () => {
+	const currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
+	if (currentScrollPosition < 0) {
+		return;
+	}
+	// 向下滚动
+	if (currentScrollPosition > lastScrollPosition.value) {
+		isHidden.value = true;
+	} else {
+		// 向上滚动
+		isHidden.value = false;
+	}
+	lastScrollPosition.value = currentScrollPosition;
+};
+
 onMounted(() => {
 	nextTick(() => {
 		initDefaultAnimation();
 		currentTheme.value = localStorage.getItem('theme-color') || '';
 	});
+	// 添加滚动事件监听
+	window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+	// 移除滚动事件监听
+	window.removeEventListener('scroll', handleScroll);
 });
 </script>
 
