@@ -129,9 +129,6 @@ button {
 	.chat_content {
 		width: 90% !important;
 	}
-	.circle-wrapper {
-		display: none !important;
-	}
 }
 
 @media screen and (min-width: 1000px) {
@@ -263,20 +260,6 @@ button {
 		width: 80% !important;
 		margin-left: 10% !important;
 		margin-right: 10% !important;
-	}
-}
-
-@media screen and (max-width: 420px) {
-	/* 显示悬浮球 */
-	.circle-wrapper {
-		display: block !important;
-	}
-}
-
-@media screen and (min-width: 420px) {
-	/* 显示悬浮球 */
-	.circle-wrapper {
-		display: none !important;
 	}
 }
 
