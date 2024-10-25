@@ -1,110 +1,41 @@
-# 关于
+# About
 
-> Nuxt 3 构建的个人网站
+> Personal website built by Nuxt 3
 
-# 目录结构
+English | [简体中文](README.zh-CN.md)
 
-```
-├── Dockerfile
-├── LICENSE
-├── README.md
-├── api
-│   └── request.ts
-├── app.vue
-├── assets
-│   ├── animate.css
-│   ├── cur
-│   │   ├── cursor.cur
-│   │   └── pointer.cur
-│   ├── highlight.css
-│   ├── imgs
-│   │   ├── beast-404.png
-│   │   ├── beast-404_LE.png
-│   │   ├── beast-404_RE.png
-│   │   ├── category.jpg
-│   │   └── tag.png
-│   └── themes.css
-├── components
-│   └── SectionArticle.vue
-├── composables
-│   ├── index.ts
-│   └── queryData.ts
-├── eslint.config.mjs
-├── layouts
-│   ├── components
-│   │   ├── Footer.vue
-│   │   └── Header.vue
-│   └── default.vue
-├── nuxt.config.ts
-├── package-lock.json
-├── package.json
-├── pages
-│   ├── [...404].vue
-│   ├── about
-│   │   └── index.vue
-│   ├── article
-│   │   └── index.vue
-│   ├── everyday
-│   │   └── index.vue
-│   └── index.vue
-├── public
-│   ├── favicon.ico
-│   └── robots.txt
-├── server
-│   └── tsconfig.json
-├── site.config.ts
-├── stores
-│   └── seoConfig.ts
-└── tsconfig.json
-```
+## effect
 
-## 效果
+### Home page
 
-### 首页
+![Home page](https://s2.loli.net/2024/10/14/zgehSPt527RxmKM.png)
 
-![首页](https://s2.loli.net/2024/10/14/zgehSPt527RxmKM.png)
+### Article details
 
-### 详情
+![Article details](https://s2.loli.net/2024/10/14/wohXZJK9BL4c7Hj.png)
 
-![文章详情](https://s2.loli.net/2024/10/14/wohXZJK9BL4c7Hj.png)
+## Development
 
-## 运行
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## 启动服务
+> [!TIP]
+> Node version >= 18
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
 # npm
+npm install
 npm run dev
 
 # pnpm
+pnpm install
 pnpm run dev
 
 # yarn
+yarn install
 yarn dev
-
-# bun
-bun run dev
 ```
 
-## 生产
+## production
 
 Build the application for production:
 
@@ -138,15 +69,19 @@ yarn preview
 bun run preview
 ```
 
-## docker 部署
+## docker Deployment
 
 ```bash
-# 构建镜像
+# Build an image
 docker build -t my-nuxt-app .
-# 运行容器
+# Run container
 docker run -d -p 3000:3000 --name my-running-nuxt-app my-nuxt-app
-# 查看在运行的容器
+# View the running container
 docker ps
-# 查看所有容器
+# View all containers
 docker ps -a
 ```
+
+## License
+
+[MIT](./LICENSE) © haohaitao
