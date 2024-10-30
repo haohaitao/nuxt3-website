@@ -46,7 +46,6 @@
 				</ul>
 			</div>
 			<div class="home-right mr-[38px] cursor-pointer flex gap-3.5 items-center">
-				<AlgoliaDocSearch />
 				<Icon
 					v-if="currentTheme === 'dark'"
 					icon="line-md:sunny-outline-to-moon-alt-loop-transition"

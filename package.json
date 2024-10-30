@@ -22,7 +22,6 @@
 		"@docsearch/css": "^3.6.2",
 		"@docsearch/js": "^3.6.2",
 		"@nuxt/eslint": "^0.5.7",
-		"@nuxtjs/algolia": "^1.10.2",
 		"@pinia/nuxt": "^0.5.5",
 		"element-plus": "^2.8.4",
 		"gsap": "^3.12.5",

@@ -74,18 +74,6 @@ export default defineNuxtConfig({
 		],
 		'pinia-plugin-persistedstate/nuxt',
 		'@vueuse/nuxt',
-		[
-			'@nuxtjs/algolia',
-			{
-				apiKey: '5c43ee90de0bdc1888565a14934501e9',
-				applicationId: 'YJYKUGXDF1',
-				// DocSearch key is used to configure DocSearch extension.
-				docSearch: {
-					indexName: 'nuxt-vue-haoht123',
-					debug: false,
-				},
-			},
-		],
 		'@nuxtjs/sitemap',
 	],
 	sitemap: {
